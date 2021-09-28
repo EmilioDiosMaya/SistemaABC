@@ -1,0 +1,32 @@
+-- Database: EscuelaBD
+
+-- DROP DATABASE "EscuelaBD";
+
+CREATE DATABASE "EscuelaBD"
+    WITH 
+    OWNER = postgres
+    ENCODING = 'UTF8'
+    LC_COLLATE = 'Spanish_Spain.1252'
+    LC_CTYPE = 'Spanish_Spain.1252'
+    TABLESPACE = pg_default
+    CONNECTION LIMIT = -1;
+
+-- Table: public.estudiante
+
+-- DROP TABLE public.estudiante;
+
+CREATE TABLE IF NOT EXISTS public.estudiante
+(
+    idestudiante integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 2147483647 CACHE 1 ),
+    primer_nom character varying(30) COLLATE pg_catalog."default" NOT NULL,
+    primer_ape character varying(30) COLLATE pg_catalog."default" NOT NULL,
+    seg_nom character varying(30) COLLATE pg_catalog."default",
+    segu_ape character varying(30) COLLATE pg_catalog."default",
+    activo boolean,
+    CONSTRAINT estudiante_pkey PRIMARY KEY (idestudiante)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public.estudiante
+    OWNER to postgres;
